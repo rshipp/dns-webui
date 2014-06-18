@@ -1,0 +1,45 @@
+<div metal:use-macro="view.layout">
+    <div metal:fill-slot="content">
+        <div tal:condition="error">
+           <div class="alert alert-danger">${error}</div>
+        </div>
+        <form action="/dns/${hostname}" method="POST">
+            <div class="form-group">
+                <label>Hostname</label>
+                <input class="form-control" id="hostname"
+                    maxlength="200" name="hostname" 
+                    placeholder="Hostname" type="text"
+                    value="${hostname}"/>
+            </div>
+            <div class="form-group">
+                <label>Record Type</label>
+                <input class="form-control" id="rtype"
+                    maxlength="5" name="rtype" 
+                    placeholder="Record Type" type="text" 
+                    value="${record['type']}"/>
+            </div>
+            <div class="form-group">
+                <label>Resolves To</label>
+                <input class="form-control" id="resolveto"
+                    maxlength="200" name="resolveto" 
+                    placeholder="Resolves To" type="text"
+                    value="${record['resolveto']}"/>
+            </div>
+            <div class="form-group">
+                <label>TTL</label>
+                <input class="form-control" id="ttl"
+                    maxlength="10" name="ttl" 
+                    placeholder="TTL" type="text"
+                    value="${record['ttl']}"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit"
+                name="submit">OK
+                </button>
+                <button class="btn btn-danger" type="delete"
+                name="delete">Delete
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
