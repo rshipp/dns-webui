@@ -3,7 +3,7 @@
         <div tal:condition="error">
            <div class="alert alert-danger">${error}</div>
         </div>
-        <form action="/dns/${hostname}" method="POST">
+        <form action="${request.route_url('dns_addedit', hostname=hostname)}" method="POST">
             <div class="form-group">
                 <label>Hostname</label>
                 <input class="form-control" id="hostname"

@@ -1,7 +1,7 @@
 <div metal:use-macro="view.layout">
     <div metal:fill-slot="content">
             <br>
-            <form action="/dns" method="POST" class="input-group">
+            <form action="${request.route_url('dns_view')}" method="POST" class="input-group">
                 <input class="form-control" id="hostname"
                        maxlength="63" name="hostname"
                        placeholder="Hostname" type="text">
